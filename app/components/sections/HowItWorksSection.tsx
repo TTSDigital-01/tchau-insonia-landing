@@ -43,7 +43,7 @@ export const HowItWorksSection = () => {
     <section id="how-it-works" className="bg-white py-20">
       <div className="max-w-6xl mx-auto px-6">
         <h2 className="font-sans text-3xl font-bold text-secondary text-center">
-          Teu caminh]o para um bom sono
+          Teu caminho para um bom sono
         </h2>
         
         <motion.div 
@@ -56,7 +56,7 @@ export const HowItWorksSection = () => {
           viewport={{ amount: 0.2 }}
         >
           
-          <Step number="1" title="Subscrição por apenas R$ 197,oo  ">
+          <Step number="1" title="Subscrição por apenas R$ 197  ">
             Acesso imediato ao programa, sem contratos nem compromissos de longo prazo. Sem renovações automáticas. Sem surpresas.
           </Step>
           <Step number="2" title="Siga o passo a passo">

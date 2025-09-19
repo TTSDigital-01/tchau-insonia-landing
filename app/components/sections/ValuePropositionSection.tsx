@@ -32,7 +32,7 @@ export const ValuePropositionSection = () => {
               O programa é desenvolivido e supervisionado por uma gabaritada equipe médica.
             </BenefitCard>
             <BenefitCard icon={FaUserMd} title="Diagnóstico e Tratamento">
-              Respondendo os questionários do programa recebera relatórios comentando cada resposta. No final terá seu 
+              Respondendo os questionários do programa recebera relatórios comentando cada resposta. No final terá seu diagnóstico primário
             </BenefitCard>
             <BenefitCard icon={FaArrowRight} title="Acesso a Mentoria Progressiva ">
               Tchau insônia lhe permite acesso facilitado a uma mentoria ou acompanhamento personalizado e contínuo até superar totalmente o problema.
