@@ -41,7 +41,7 @@ export const TestimonialsSection = () => {
             imageSrc="/images/1TESTIMONIO7.png"
             name="Andrés, 34"
             details="Bogotá"
-            quote="Investi apenas R$ 197,oo sem muitas expectativas e em poucos dias já tinha meu diagnóstico e o plano de tratamento. Em menos de 2 semanas já dormia melhor e hoje me sinto curado, confiante para prosseguir sem ajuda."
+            quote="Investi apenas R$ 197 sem muitas expectativas e em poucos dias já tinha meu diagnóstico e o plano de tratamento. Em menos de 2 semanas já dormia melhor e hoje me sinto curado, confiante para prosseguir sem ajuda."
           />
           <TestimonialCard
             imageSrc="/images/2TESTIMONIO7.png"
