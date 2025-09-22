@@ -1,4 +1,10 @@
-// app/page.tsx (Versión 2.2
+/**
+ * @version 2.3
+ * @author "M (Experto 5 - BIZ-PLAN-PRO)"
+ * @date 2025-08-26
+ * @description Refactoriza las variantes de tamaño para usar padding vertical (py) en lugar de altura fija (h-). Esto permite que la altura del botón se expanda para acomodar contenido de múltiples líneas, solucionando problemas en vistas móviles.
+ */
+// RUTA: app/components/ui/Button.tsx
 
 import { forwardRef, ButtonHTMLAttributes } from 'react';
 import { Slot } from '@radix-ui/react-slot';
@@ -16,9 +22,9 @@ const buttonVariants = cva(
         ghost: 'bg-transparent text-primary hover:bg-gray-200 focus:ring-primary',
       },
       size: {
-        default: 'h-11 px-8 py-3',
-        sm: 'h-9 px-4 rounded-md',
-        lg: 'h-12 px-10 text-lg',
+        default: 'px-8 py-3',
+        sm: 'px-4 py-2 rounded-md',
+        lg: 'px-10 py-3 text-lg',
       },
     },
     defaultVariants: {
@@ -31,7 +37,7 @@ const buttonVariants = cva(
 export interface ButtonProps
   extends ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
-      asChild?: boolean; // Añadir asChild a las props
+      asChild?: boolean;
     }
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
@@ -51,4 +57,3 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 Button.displayName = 'Button';
 
 export { Button, buttonVariants };
-// FIRMADO: EDU
