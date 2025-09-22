@@ -19,7 +19,7 @@ export const FinalCTASection = () => {
         <ul className="mt-8 space-y-3 inline-block text-left">
           <li className="flex items-center">
             <FaCheckCircle className="text-accent text-lg mr-3" />
-            <span className="font-body text-base-text">Diagnóstico primario personalizado </span>
+            <span className="font-body text-base-text">Diagnóstico primário personalizado </span>
           </li>
           <li className="flex items-center">
             <FaCheckCircle className="text-accent text-lg mr-3" />

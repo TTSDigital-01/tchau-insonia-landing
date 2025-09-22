@@ -43,7 +43,7 @@ export const HowItWorksSection = () => {
     <section id="how-it-works" className="bg-white py-20">
       <div className="max-w-6xl mx-auto px-6">
         <h2 className="font-sans text-3xl font-bold text-secondary text-center">
-          Teu caminho para um bom sono
+          Seu caminho para um bom sono
         </h2>
         
         <motion.div 
@@ -66,10 +66,10 @@ export const HowItWorksSection = () => {
             São perguntas em linguagem simples e respostas de múltipla escolha, preparados por médicos e fundamentados em ciência.
           </Step>
           <Step number="4" title="Saiba qual é o seu Diagnóstico e qual o Tratamento ">
-            Receba o seu diagnóstico primário e um plano terapêutico integrativo. Com vídeos, áudios e textos lhe enzinaremos como aplicar corretamente as técnicas de tratamento propostas.
+            Receba o seu diagnóstico primário e um plano terapêutico integrativo. Com vídeos, áudios e textos lhe ensinaremos como aplicar corretamente as técnicas de tratamento propostas.
           </Step>
           <Step number="5" title="Durma Bem e seja Feliz">
-            Tenha um bom sono, tranquilo e suficientemente reparador. Disfrute sua vida plenamente.
+            Tenha um bom sono, tranquilo e suficientemente reparador. Desfrute sua vida plenamente.
           </Step>
 
         </motion.div>

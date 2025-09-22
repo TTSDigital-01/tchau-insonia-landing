@@ -92,7 +92,7 @@ export const HeroSection = () => {
           animate={{ scale: [1, 1.03, 1] }}
           transition={{ duration: 2.5, ease: "easeInOut", repeat: Infinity }}
         >
-          <Button size="lg" asChild className="shadow-2xl shadow-accent/20">
+          <Button size="lg" asChild className="shadow-2xl shadow-accent/20 w-full md:w-auto">
             <a href="/checkout">
               <FaLock className="mr-2 h-5 w-5" />
               Subscrição promocional por apenas R$ 197  Acesso imediato!
