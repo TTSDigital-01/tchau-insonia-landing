@@ -1,4 +1,4 @@
-// pp/components/sections/FinalCTASection.tsx (Versión 1.0)
+// app/components/sections/FinalCTASection.tsx (Versión 1.0)
 
 import { FaCheckCircle } from 'react-icons/fa';
 import { Button } from '../ui/Button'; // Importamos nuestro componente de botón

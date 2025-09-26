@@ -1,3 +1,4 @@
+// app/components/sections/TestimonialSection.tsx
 import Image from 'next/image';
 import { FaQuoteLeft } from 'react-icons/fa';
 
