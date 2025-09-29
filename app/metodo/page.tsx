@@ -1,4 +1,4 @@
-// app/metodo/page.tsx
+// app/metodo/page.tsx — Versión 3.2 (segura, sin cambios estructurales)
 "use client";
 import { WiMetodoSection } from '../components/sections/WiMetodoSection';
 import { motion } from 'framer-motion';
@@ -17,7 +17,6 @@ export default function MetodoPage() {
           backgroundRepeat: 'no-repeat',
         }}
       >
-        {/* Efecto de luz que avanza suavemente */}
         <motion.div
           className="absolute inset-0 bg-gradient-to-b from-transparent via-white/10 to-transparent"
           animate={{
@@ -33,11 +32,7 @@ export default function MetodoPage() {
           }}
         />
       </div>
-
-      {/* Contenido principal — Todo integrado en un solo flujo visual */}
       <div className="relative z-10">
-        
-        {/* Título y subtítulo de la página — CENTRADOS Y SOBRE EL FONDO */}
         <div className="pt-20 pb-16 px-6 text-center">
           <h1 className="font-sans text-4xl md:text-6xl font-bold text-primary mb-6">
             Nosso método
@@ -46,8 +41,6 @@ export default function MetodoPage() {
             Un enfoque integrativo: ciência, tecnologia e acompanhamento
           </p>
         </div>
-
-        {/* Los 4 pilares — SIN TÍTULOS DUPLICADOS, SIN CTA DUPLICADO */}
         <div className="px-6">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -58,20 +51,20 @@ export default function MetodoPage() {
             <WiMetodoSection />
           </motion.div>
         </div>
-
-        {/* CTA FINAL — ÚNICO, EN EL FINAL DE LA PÁGINA */}
+        {/* CTA FINAL — CORREGIDO: envuelto en div con z-20 y cursor-pointer */}
         <div className="py-12 px-6 text-center">
           <p className="font-body text-lg text-base-text mb-8">
             Se você gostaria de aprender sobre os princípios científicos que sustentam nosso método, visite:
           </p>
-          <Link 
-            href="/ciencia"
-            className="inline-block bg-accent text-white px-8 py-4 rounded-lg font-sans font-bold text-lg shadow-md hover:shadow-lg transition-all"
-          >
-            A Ciência por Trás do Nosso Método
-          </Link>
+          <div className="relative z-20">
+            <Link 
+              href="/ciencia"
+              className="inline-block bg-accent text-white px-8 py-4 rounded-lg font-sans font-bold text-lg shadow-md hover:shadow-lg transition-all cursor-pointer"
+            >
+              A Ciência por Trás do Nosso Método
+            </Link>
+          </div>
         </div>
-
       </div>
     </div> 
   );

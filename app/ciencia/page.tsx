@@ -1,11 +1,10 @@
-// app/ciencia/page.tsx — Versión 2.1 (Fondo corregido, sin imagen de escritorio)
+// app/ciencia/page.tsx — Versión 3.1 (CORREGIDA: enlace funciona + imagen se renderiza)
 "use client";
 import { motion } from 'framer-motion';
 import { WiCienciaSection } from '../components/sections/WiCienciaSection';
 import Link from 'next/link';
 
 export default function CienciaPage() {
-  // Animación de deslizamiento del título y subtítulo — con tipografía correcta
   const titleVariants = {
     hidden: { opacity: 0, y: 40 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: 'easeOut' } },
@@ -23,10 +22,8 @@ export default function CienciaPage() {
           backgroundRepeat: 'no-repeat',
         }}
       />
-
       {/* Contenido principal */}
       <div className="relative z-10">
-        {/* TÍTULO Y SUBTÍTULO — USANDO LA TIPOGRAFÍA DE LA WEB INSTITUCIONAL */}
         <motion.div
           variants={titleVariants}
           initial="hidden"
@@ -40,23 +37,23 @@ export default function CienciaPage() {
             Em um mundo cheio de soluções rápidas para a insônia — remédios, suplementos, apps que prometem milagres — pode parecer difícil acreditar que algo realmente funcione.
           </p>
         </motion.div>
-
-        {/* IMAGEN INTERACTIVA — EN EL COMPONENTE WiCienciaSection.tsx, A LA DERECHA, CON SOMBRAS SUAVES */}
+        {/* ✅ IMPORTANTE: mantener el contenedor px-6 para que WiCienciaSection se renderice correctamente */}
         <div className="px-6">
           <WiCienciaSection />
         </div>
-
-        {/* CTA FINAL — SUAVE, COMO UNA INVITACIÓN */}
+        {/* CTA FINAL — CORREGIDO: envuelto en div con z-20 y cursor-pointer */}
         <div className="py-20 px-6 text-center">
           <p className="font-sans text-lg text-base-text mb-8">
             Se você quiser conhecer o profissional por trás do nosso programa, visite:
           </p>
-          <Link
-            href="/sobre"
-            className="inline-block bg-accent text-white px-8 py-4 rounded-lg font-sans font-bold text-lg shadow-md hover:shadow-lg transition-all border border-accent/30"
-          >
-            Sobre nós →
-          </Link>
+          <div className="relative z-20">
+            <Link
+              href="/sobre"
+              className="inline-block bg-accent text-white px-8 py-4 rounded-lg font-sans font-bold text-lg shadow-md hover:shadow-lg transition-all cursor-pointer"
+            >
+              Sobre nós →
+            </Link>
+          </div>
         </div>
       </div>
     </div>

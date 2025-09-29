@@ -1,6 +1,5 @@
-// app/sobre/page.tsx
+// app/sobre/page.tsx — Versión 2 CORREGIDA Y FUNCIONAL
 "use client";
-
 import { WiSobreNosotrosSection } from '../components/sections/WiSobreNosotrosSection';
 import Link from 'next/link';
 
@@ -16,7 +15,6 @@ export default function SobrePage() {
           backgroundPosition: 'center',
         }}
       />
-
       {/* Contenido principal */}
       <div className="relative z-10 pt-32 pb-24 px-6">
         {/* Título único */}
@@ -28,23 +26,23 @@ export default function SobrePage() {
             Conheça o médico que criou o programa e a equipe que o mantém vivo.
           </p>
         </div>
-
         {/* Contenido del componente */}
         <div className="px-6">
           <WiSobreNosotrosSection />
         </div>
-
-        {/* CTA final */}
+        {/* CTA final — CORREGIDO CON ENVOLTURA DE SEGURIDAD */}
         <div className="text-center mt-16">
           <p className="font-body text-lg text-base-text mb-8">
             Se você quiser ver como este método mudou a vida de pessoas como você, visite:
           </p>
-          <Link
-            href="/testemunhos"
-            className="inline-block bg-accent text-white px-8 py-4 rounded-lg font-sans font-bold text-lg shadow-md hover:shadow-lg transition-all"
-          >
-            Testemunhos →
-          </Link>
+          <div className="relative z-20">
+            <Link
+              href="/testemunhos"
+              className="inline-block bg-accent text-white px-8 py-4 rounded-lg font-sans font-bold text-lg shadow-md hover:shadow-lg transition-all cursor-pointer"
+            >
+              Testemunhos →
+            </Link>
+          </div>
         </div>
       </div>
     </div>
