@@ -62,35 +62,28 @@ export const WiCienciaSection = () => {
           <div className="relative max-w-md">
             {/* Contenedor para el efecto de tilt */}
             <motion.div
-              className="rounded-3xl overflow-hidden shadow-2xl border-4 border-gray-200"
-              whileHover={{ 
-                rotateX: 2, 
-                rotateY: -2,
-                transition: { type: 'spring', stiffness: 80, damping: 15 } // Suave, realista
-              }}
-              whileTap={{ 
-                rotateX: -2, 
-                rotateY: 2,
-                transition: { type: 'spring', stiffness: 100, damping: 20 }
-              }}
-              // ✅ ¡ESTO ES LO QUE FALTABA! Animación 3D con mouse
-              whileMove={{ 
-                rotateX: 1, 
-                rotateY: -1,
-                transition: { type: 'spring', stiffness: 60, damping: 12 }
-              }}
-            >
-              <Image
-                src="/images/ciencia-diario.png"
-                alt="Escritório do Dr. Mario Rivera: diário aberto, tablet com gráfico de sono, caneta e xícara de chá. Iluminação natural. Ambiente profissional e tranquilo."
-                width={600}
-                height={400}
-                className="w-full h-auto object-contain rounded-3xl"
-                priority
-              />
-              {/* Efecto de luz suave sobre la imagen — solo en la parte superior */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent rounded-3xl pointer-events-none"></div>
-            </motion.div>
+  className="rounded-3xl overflow-hidden shadow-2xl border-4 border-gray-200"
+  whileHover={{ 
+    rotateX: 2, 
+    rotateY: -2,
+    transition: { type: 'spring', stiffness: 80, damping: 15 }
+  }}
+  whileTap={{ 
+    rotateX: -2, 
+    rotateY: 2,
+    transition: { type: 'spring', stiffness: 100, damping: 20 }
+  }}
+>
+  <Image
+    src="/images/ciencia-diario.png"
+    alt="Escritório do Dr. Mario Rivera: diário aberto, tablet com gráfico de sono, caneta e xícara de chá. Iluminação natural. Ambiente profissional e tranquilo."
+    width={600}
+    height={400}
+    className="w-full h-auto object-contain rounded-3xl"
+    priority
+  />
+  <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent rounded-3xl pointer-events-none"></div>
+</motion.div>
           </div>
         </div>
       </div>
