@@ -1,4 +1,4 @@
-// app/components/layout/Header.tsx — Versión 4 (Menú móvil completo + fondo legible)
+// app/components/layout/Header.tsx — Versión 5 (Menú móvil con fondo negro y texto blanco)
 "use client";
 import Image from 'next/image';
 import Link from 'next/link';
@@ -90,14 +90,14 @@ export const Header = () => {
         </button>
       </nav>
 
-      {/* Menú móvil overlay — CON FONDO OPACO Y CONTRASTE ALTO */}
+      {/* Menú móvil overlay — FONDO NEGRO, TEXTO BLANCO */}
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="md:hidden fixed inset-0 bg-white z-40" // ✅ Fondo blanco sólido
+            className="md:hidden fixed inset-0 bg-primary z-40" // ✅ Fondo negro (#1B2A49)
           >
             <div className="flex flex-col items-center justify-start pt-20 px-6 h-full">
               <div className="w-full max-w-md space-y-6">
@@ -111,7 +111,7 @@ export const Header = () => {
                   >
                     <Link
                       href={link.href}
-                      className="block text-center font-body text-xl text-primary font-semibold hover:text-accent transition-colors py-3 border-b border-gray-100"
+                      className="block text-center font-body text-xl text-white font-semibold hover:text-accent transition-colors py-3 border-b border-blue-800/30"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       {link.label}
@@ -119,13 +119,13 @@ export const Header = () => {
                   </motion.div>
                 ))}
               </div>
-              {/* Cerrar explícitamente */}
+              {/* Botón de cierre explícito — visible y accesible */}
               <button
                 onClick={() => setIsMenuOpen(false)}
-                className="mt-8 text-sm text-gray-500 hover:text-gray-700"
+                className="mt-12 px-6 py-3 bg-white/10 text-white rounded-lg font-body text-sm hover:bg-white/20 transition-colors"
                 aria-label="Cerrar menú"
               >
-                Cerrar
+                Cerrar menú
               </button>
             </div>
           </motion.div>
