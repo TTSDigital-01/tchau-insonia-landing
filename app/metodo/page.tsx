@@ -2,6 +2,7 @@
 "use client";
 import { WiMetodoSection } from '../components/sections/WiMetodoSection';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 export default function MetodoPage() {
   return (
@@ -61,18 +62,17 @@ export default function MetodoPage() {
         {/* CTA FINAL — ÚNICO, EN EL FINAL DE LA PÁGINA */}
         <div className="py-12 px-6 text-center">
           <p className="font-body text-lg text-base-text mb-8">
-            Receber seu relatório não é o fim. É o início da mudança real.  
-            Comece hoje, com um acesso básico por R$ 197.
+            Se você gostaria de aprender sobre os princípios científicos que sustentam nosso método, visite:
           </p>
-          <a
-            href="/landing"
+          <Link 
+            href="/ciencia"
             className="inline-block bg-accent text-white px-8 py-4 rounded-lg font-sans font-bold text-lg shadow-md hover:shadow-lg transition-all"
           >
-            Comece agora por R$ 197
-          </a>
+            A Ciência por Trás do Nosso Método
+          </Link>
         </div>
 
       </div>
-    </div>
+    </div> 
   );
 }

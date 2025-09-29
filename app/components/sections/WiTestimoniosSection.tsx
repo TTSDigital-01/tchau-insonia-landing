@@ -123,7 +123,7 @@ const WiTestimoniosSection = () => {
           }, 1500);
         }
       }
-    }, 30);
+    }, 40); //velocidad de despliegue de texto
   };
 
   useEffect(() => {

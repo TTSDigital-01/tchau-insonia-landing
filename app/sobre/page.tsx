@@ -2,6 +2,7 @@
 "use client";
 
 import { WiSobreNosotrosSection } from '../components/sections/WiSobreNosotrosSection';
+import Link from 'next/link';
 
 export default function SobrePage() {
   return (
@@ -38,12 +39,12 @@ export default function SobrePage() {
           <p className="font-body text-lg text-base-text mb-8">
             Se você quiser ver como este método mudou a vida de pessoas como você, visite:
           </p>
-          <a
+          <Link
             href="/testemunhos"
             className="inline-block bg-accent text-white px-8 py-4 rounded-lg font-sans font-bold text-lg shadow-md hover:shadow-lg transition-all"
           >
             Testemunhos →
-          </a>
+          </Link>
         </div>
       </div>
     </div>

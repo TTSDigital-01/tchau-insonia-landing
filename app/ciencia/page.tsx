@@ -1,8 +1,8 @@
-// app/ciencia/page.tsx
+// app/ciencia/page.tsx — Versión 2.1 (Fondo corregido, sin imagen de escritorio)
 "use client";
 import { motion } from 'framer-motion';
-import { useSpring, animated } from '@react-spring/web';
 import { WiCienciaSection } from '../components/sections/WiCienciaSection';
+import Link from 'next/link';
 
 export default function CienciaPage() {
   // Animación de deslizamiento del título y subtítulo — con tipografía correcta
@@ -13,18 +13,17 @@ export default function CienciaPage() {
 
   return (
     <div className="relative min-h-screen overflow-hidden bg-background">
-      {/* Fondo sutil para profundidad — BLANCO Puro, SIN TEXTURA */}
-      <div className="absolute inset-0 z-0 opacity-5">
-        <div
-          className="w-full h-full"
-          style={{
-            backgroundImage: `url('/images/ciencia-diario.png')`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat',
-          }}
-        />
-      </div>
+      {/* Fondo abstracto de flujo — IGUAL QUE EN /METODO, /INSOMNIO, /SOBRE */}
+      <div 
+        className="absolute inset-0 z-0 opacity-5"
+        style={{
+          backgroundImage: `url('/images/metodo-flow.png')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+        }}
+      />
+
       {/* Contenido principal */}
       <div className="relative z-10">
         {/* TÍTULO Y SUBTÍTULO — USANDO LA TIPOGRAFÍA DE LA WEB INSTITUCIONAL */}
@@ -52,12 +51,12 @@ export default function CienciaPage() {
           <p className="font-sans text-lg text-base-text mb-8">
             Se você quiser conhecer o profissional por trás do nosso programa, visite:
           </p>
-          <a
+          <Link
             href="/sobre"
             className="inline-block bg-accent text-white px-8 py-4 rounded-lg font-sans font-bold text-lg shadow-md hover:shadow-lg transition-all border border-accent/30"
           >
             Sobre nós →
-          </a>
+          </Link>
         </div>
       </div>
     </div>

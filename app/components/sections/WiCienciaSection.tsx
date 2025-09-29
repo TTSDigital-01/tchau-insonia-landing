@@ -1,4 +1,4 @@
-// app/components/sections/WiCienciaSection.tsx
+// app/components/sections/WiCienciaSection.tsx — Versión 4.0 (Fondo + Animación 3D Interactiva)
 "use client";
 import Image from 'next/image';
 import { motion } from 'framer-motion';
@@ -18,8 +18,20 @@ export const WiCienciaSection = () => {
 
   return (
     <section className="py-20 px-6 bg-background">
-      {/* Fondo limpio — SIN TEXTURAS */}
-      <div className="relative max-w-7xl mx-auto flex flex-col lg:flex-row items-center lg:items-start gap-16">
+      {/* Fondo abstracto de flujo — DETRÁS de todo el contenido */}
+      <div 
+        className="absolute inset-0 z-0 opacity-5"
+        style={{
+          backgroundImage: `url('/images/metodo-flow.png')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+        }}
+      />
+
+      {/* Contenido principal — ENCIMA del fondo */}
+      <div className="relative z-10 max-w-7xl mx-auto flex flex-col lg:flex-row items-center lg:items-start gap-16">
+        
         {/* TEXTO — A LA IZQUIERDA, APARECIENDO AL SCROLL */}
         <div className="lg:w-1/2 lg:pr-16">
           {textItems.map((text, index) => (
@@ -45,19 +57,40 @@ export const WiCienciaSection = () => {
           ))}
         </div>
 
-        {/* IMAGEN — A LA DERECHA, FIJA, SIN MOVIMIENTO */}
+        {/* IMAGEN — A LA DERECHA, CON ANIMACIÓN 3D INTERACTIVA QUE RESPONDE AL MOUSE */}
         <div className="lg:w-1/2 flex justify-center lg:justify-end">
           <div className="relative max-w-md">
-            <Image
-              src="/images/ciencia-diario.png"
-              alt="Escritório do Dr. Mario Rivera: diário aberto, tablet com gráfico de sono, caneta e xícara de chá. Iluminação natural. Ambiente profissional e tranquilo."
-              width={600}
-              height={400}
-              className="rounded-3xl shadow-2xl border-4 border-gray-200 object-contain"
-              priority
-            />
-            {/* Efecto de luz suave sobre la imagen — solo en la parte superior */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent rounded-3xl pointer-events-none"></div>
+            {/* Contenedor para el efecto de tilt */}
+            <motion.div
+              className="rounded-3xl overflow-hidden shadow-2xl border-4 border-gray-200"
+              whileHover={{ 
+                rotateX: 2, 
+                rotateY: -2,
+                transition: { type: 'spring', stiffness: 80, damping: 15 } // Suave, realista
+              }}
+              whileTap={{ 
+                rotateX: -2, 
+                rotateY: 2,
+                transition: { type: 'spring', stiffness: 100, damping: 20 }
+              }}
+              // ✅ ¡ESTO ES LO QUE FALTABA! Animación 3D con mouse
+              whileMove={{ 
+                rotateX: 1, 
+                rotateY: -1,
+                transition: { type: 'spring', stiffness: 60, damping: 12 }
+              }}
+            >
+              <Image
+                src="/images/ciencia-diario.png"
+                alt="Escritório do Dr. Mario Rivera: diário aberto, tablet com gráfico de sono, caneta e xícara de chá. Iluminação natural. Ambiente profissional e tranquilo."
+                width={600}
+                height={400}
+                className="w-full h-auto object-contain rounded-3xl"
+                priority
+              />
+              {/* Efecto de luz suave sobre la imagen — solo en la parte superior */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent rounded-3xl pointer-events-none"></div>
+            </motion.div>
           </div>
         </div>
       </div>

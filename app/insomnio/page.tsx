@@ -2,6 +2,7 @@
 "use client";
 import { WiSobreInsomnioSection } from '../components/sections/WiSobreInsomnioSection';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 export default function InsomnioPage() {
   // Animación de deslizamiento para el título y subtítulo
@@ -57,12 +58,12 @@ export default function InsomnioPage() {
             <p className="font-body text-lg text-base-text mb-8">
               Se quiser entender como identificamos su tipo de insônia y le ofrecemos un plan realista, continue aquí:
             </p>
-            <a
+            <Link
               href="/metodo"
               className="inline-block bg-accent text-white px-8 py-4 rounded-lg font-sans font-bold text-lg shadow-md hover:shadow-lg transition-all"
             >
               Conheça nosso método →
-            </a>
+            </Link>
           </div>
         </motion.div>
       </div>

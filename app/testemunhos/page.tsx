@@ -61,10 +61,10 @@ export default function TestemunhosPage() {
             // viewport={{ once: true }} // Si se usa `whileInView`
           >
             <a
-              href="/metodo"
+              href="/landing"
               className="inline-block bg-accent text-white px-8 py-4 rounded-lg font-sans font-bold text-lg shadow-md hover:shadow-lg transition-all"
             >
-              Conheça o Método →
+              Comece agora →
             </a>
           </motion.div>
         </div>
