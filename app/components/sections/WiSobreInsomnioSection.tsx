@@ -1,4 +1,4 @@
-// app/components/sections/WiSobreInsomnioSection.tsx — Versión 3.5 (CORREGIDA: SIN TÍTULOS DUPLICADOS)
+// app/components/sections/WiSobreInsomnioSection.tsx — Versión 4.0 (con efecto hover en tarjetas)
 import Link from 'next/link';
 
 export const WiSobreInsomnioSection = () => {
@@ -14,13 +14,12 @@ export const WiSobreInsomnioSection = () => {
           backgroundRepeat: 'no-repeat',
         }}
       />
-
       {/* Contenido principal — SIN TÍTULO PRINCIPAL, SIN TÍTULO DUPLICADO */}
       <div className="relative z-10 max-w-4xl mx-auto">
-        
-        
         {/* Bloque 2: Tipos de insônia */}
-        <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-100 mb-8">
+        <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-100 mb-8
+                        hover:shadow-md hover:-translate-y-0.5 
+                        transition-all duration-200 ease-out">
           <h3 className="font-sans text-2xl font-bold text-primary mb-4">
             Tipos de insônia: nem todos são iguais
           </h3>
@@ -40,9 +39,10 @@ export const WiSobreInsomnioSection = () => {
             A mais comum entre quem já tentou de tudo. Seu corpo aprendeu a associar a cama à vigília, à ansiedade ou ao esforço para dormir. É como um “mau hábito” do sistema nervoso. Mas, assim como qualquer hábito, pode ser reeducado.
           </p>
         </div>
-
         {/* Bloque 3: Causas comuns */}
-        <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-100 mb-8">
+        <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-100 mb-8
+                        hover:shadow-md hover:-translate-y-0.5 
+                        transition-all duration-200 ease-out">
           <h3 className="font-sans text-2xl font-bold text-primary mb-4">
             Por que isso está acontecendo comigo?
           </h3>
@@ -57,9 +57,10 @@ export const WiSobreInsomnioSection = () => {
             <li className="font-body text-base-text"><strong>Medo do insônia:</strong> Sim, existe. É quando você começa a temer a hora de deitar porque “já sei que não vou dormir”.</li>
           </ul>
         </div>
-
         {/* Bloque 4: Cuando buscar ajuda */}
-        <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-100 mb-8">
+        <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-100 mb-8
+                        hover:shadow-md hover:-translate-y-0.5 
+                        transition-all duration-200 ease-out">
           <h3 className="font-sans text-2xl font-bold text-primary mb-4">
             Quando procurar ajuda?
           </h3>
@@ -76,8 +77,6 @@ export const WiSobreInsomnioSection = () => {
             Procurar ajuda não é fracasso. É um ato de autocuidado. E muitas vezes, o que falta não é força de vontade, mas sim uma orientação clara e personalizada.
           </p>
         </div>
-
-        
       </div>
     </section>
   );

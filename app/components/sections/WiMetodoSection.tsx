@@ -1,5 +1,6 @@
-// app/components/sections/WiMetodoSection.tsx
+// app/components/sections/WiMetodoSection.tsx — Versión 4.1 (con efecto hover + animación de entrada preservada)
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 export const WiMetodoSection = () => {
   return (
@@ -11,14 +12,20 @@ export const WiMetodoSection = () => {
           backgroundImage: `url('/images/metodo-flow.png')`,
         }}
       ></div>
-
       {/* Contenido principal — ENCIMA del fondo */}
       <div className="max-w-5xl mx-auto relative z-10">
-
-        {/* Cuatro pilares */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
+        {/* Cuatro pilares — CON ANIMACIÓN DE ENTRADA Y EFECTO HOVER */}
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
           {/* Pilar 1: Conhecimento sobre o tema */}
-          <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
+          <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-100
+                          hover:shadow-md hover:-translate-y-0.5 
+                          transition-all duration-200 ease-out">
             <h3 className="font-sans text-xl font-bold text-primary mb-4">
               Conhecimento sobre o tema
             </h3>
@@ -31,9 +38,10 @@ export const WiMetodoSection = () => {
               Porque entender sua insônia é o primeiro passo para superá-la.
             </p>
           </div>
-
           {/* Pilar 2: Avaliação de cada caso */}
-          <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
+          <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-100
+                          hover:shadow-md hover:-translate-y-0.5 
+                          transition-all duration-200 ease-out">
             <h3 className="font-sans text-xl font-bold text-primary mb-4">
               Avaliação de cada caso
             </h3>
@@ -49,9 +57,10 @@ export const WiMetodoSection = () => {
               Não é automatizado. É guiado por IA, validado por médicos.
             </p>
           </div>
-
           {/* Pilar 3: Orientação terapêutica */}
-          <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
+          <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-100
+                          hover:shadow-md hover:-translate-y-0.5 
+                          transition-all duration-200 ease-out">
             <h3 className="font-sans text-xl font-bold text-primary mb-4">
               Orientação terapêutica
             </h3>
@@ -66,9 +75,10 @@ export const WiMetodoSection = () => {
               Tudo explicado passo a passo, com vídeos, áudios e textos fáceis de seguir.
             </p>
           </div>
-
           {/* Pilar 4: Acompanhamento contínuo */}
-          <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
+          <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-100
+                          hover:shadow-md hover:-translate-y-0.5 
+                          transition-all duration-200 ease-out">
             <h3 className="font-sans text-xl font-bold text-primary mb-4">
               Acompanhamento contínuo
             </h3>
@@ -80,8 +90,7 @@ export const WiMetodoSection = () => {
               Você não está sozinho neste processo.
             </p>
           </div>
-        </div>
-
+        </motion.div>
         {/* Cierre emocional (dentro del componente, como parte del contenido) */}
         <div className="text-center mb-16">
           <h2 className="font-sans text-2xl font-bold text-primary mb-6">
@@ -89,9 +98,9 @@ export const WiMetodoSection = () => {
           </h2>
           <p className="font-body text-lg text-base-text max-w-3xl mx-auto leading-relaxed mb-8">
             Imagine um assistente que:  
-            - Te escucha con atención.  
+            - Te escuta com atenção.  
             - Não te julga.  
-            - Responde con conocimiento médico.  
+            - Responde com conhecimento médico.  
             - E te acompanha com paciência.  
             Isso é o que nossa plataforma faz: combina a precisão da ciência com a calorosidade de um acompanhante humano.
           </p>
@@ -99,7 +108,6 @@ export const WiMetodoSection = () => {
             A inteligência artificial processa suas respostas, mas o design do programa, os conteúdos e as recomendações vêm do Dr. Mario Rivera, com mais de 40 anos de experiência em distúrbios do sono.
           </p>
         </div>
-
       </div>
     </section>
   );

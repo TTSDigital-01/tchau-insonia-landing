@@ -1,8 +1,14 @@
-// app/components/layout/Footer.tsx — Versión 2 (Corregida con "use client")
-"use client"; // ✅ ¡ESTA LÍNEA ES LA CLAVE!
-
+// app/components/layout/Footer.tsx — Versión 3 (con iconos de redes sociales)
+"use client";
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import {
+  FaTiktok,
+  FaInstagram,
+  FaFacebookF,
+  FaEnvelope,
+  FaWhatsapp
+} from 'react-icons/fa';
 
 export const Footer = () => {
   const pathname = usePathname();
@@ -19,13 +25,11 @@ export const Footer = () => {
               Recupera teu sono, recupera tua vida.
             </p>
           </div>
-
           {/* Columna de Enlaces */}
           <div className="md:col-span-1">
             <h4 className="font-sans font-bold">Navegação</h4>
             <ul className="mt-4 space-y-2 font-body text-sm">
               {isLanding ? (
-                // ENLACES PARA LANDING
                 <>
                   <li>
                     <Link href="#how-it-works" className="text-secondary hover:text-white transition-colors">
@@ -44,7 +48,6 @@ export const Footer = () => {
                   </li>
                 </>
               ) : (
-                // ENLACES PARA WEB INSTITUCIONAL — NUEVO ORDEN
                 <>
                   <li>
                     <Link href="/" className="text-secondary hover:text-white transition-colors">
@@ -95,7 +98,6 @@ export const Footer = () => {
               )}
             </ul>
           </div>
-
           {/* Columna Legal */}
           <div className="md:col-span-1">
             <h4 className="font-sans font-bold">Jurídico</h4>
@@ -119,8 +121,47 @@ export const Footer = () => {
           </div>
         </div>
 
+        {/* NUEVA SECCIÓN: Iconos de redes sociales */}
+        <div className="mt-12 pt-8 border-t border-blue-800 flex justify-center space-x-6">
+          <a
+            href="#"
+            aria-label="TikTok"
+            className="text-secondary hover:text-white transition-colors"
+          >
+            <FaTiktok className="text-xl" />
+          </a>
+          <a
+            href="#"
+            aria-label="Instagram"
+            className="text-secondary hover:text-white transition-colors"
+          >
+            <FaInstagram className="text-xl" />
+          </a>
+          <a
+            href="#"
+            aria-label="Facebook"
+            className="text-secondary hover:text-white transition-colors"
+          >
+            <FaFacebookF className="text-xl" />
+          </a>
+          <a
+            href="#"
+            aria-label="Email"
+            className="text-secondary hover:text-white transition-colors"
+          >
+            <FaEnvelope className="text-xl" />
+          </a>
+          <a
+            href="#"
+            aria-label="WhatsApp"
+            className="text-secondary hover:text-white transition-colors"
+          >
+            <FaWhatsapp className="text-xl" />
+          </a>
+        </div>
+
         {/* Línea divisoria y Derechos de Autor */}
-        <div className="mt-10 pt-8 border-t border-blue-800 text-center">
+        <div className="mt-8 pt-8 border-t border-blue-800 text-center">
           <p className="font-body text-sm text-secondary">
             © {new Date().getFullYear()} TCHAU INSÔNIA. Todos os direitos reservados.
           </p>
