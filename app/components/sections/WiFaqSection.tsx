@@ -1,4 +1,4 @@
-// app/components/sections/WiFaqSection.tsx — Versión 3.1 (Corregida)
+// app/components/sections/WiFaqSection.tsx — Versión 4.0 (Espaciado corregido, móvil optimizado)
 "use client";
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
@@ -6,7 +6,6 @@ import { useEffect, useState } from 'react';
 export const WiFaqSection = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
-  // ✅ CONTENIDO COMPLETO DENTRO DEL COMPONENTE — NINGÚN TÍTULO, NINGÚN SUBTÍTULO
   const faqItems = [
     {
       question: "Funciona se já tentei remédios e não funcionaram?",
@@ -43,45 +42,50 @@ export const WiFaqSection = () => {
   ];
 
   return (
-    <section className="py-20 px-6">
-      {/* ¡NADA DE TÍTULO! ¡NADA DE SUBTÍTULO! ¡SOLO EL ACORDEÓN! */}
+    <section className="py-12 px-6">
       <div className="max-w-4xl mx-auto">
-        {/* Lista de Preguntas — SIN TÍTULOS DUPLICADOS */}
         <div className="space-y-6">
           {faqItems.map((item, index) => (
             <motion.div
               key={index}
+              className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden"
               initial={false}
               animate={openIndex === index ? "open" : "closed"}
               variants={{
-                closed: { height: 0, opacity: 0.5 },
-                open: { height: "auto", opacity: 1 }
+                open: { scale: 1, y: 0 },
+                closed: { scale: 1, y: 0 }
               }}
-              transition={{ duration: 0.4, ease: "easeInOut" }}
-              className="bg-white rounded-xl shadow-sm border border-gray-100"
             >
               <button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                className="w-full text-left px-8 py-6 flex justify-between items-center focus:outline-none hover:bg-gray-50 transition-colors"
+                className="w-full text-left px-6 py-5 md:px-8 md:py-6 flex justify-between items-center focus:outline-none hover:bg-gray-50 transition-colors"
+                aria-expanded={openIndex === index}
+                aria-controls={`faq-answer-${index}`}
               >
-                <span className="font-body italic text-base-text text-lg">
+                <span className="font-body italic text-base-text text-lg md:text-xl">
                   {item.question}
                 </span>
-                <span className={`font-sans text-primary transition-transform ${openIndex === index ? 'rotate-180' : ''}`}>
+                <motion.span
+                  className="font-sans text-primary text-xl"
+                  animate={{ rotate: openIndex === index ? 180 : 0 }}
+                  transition={{ duration: 0.2 }}
+                >
                   ▼
-                </span>
+                </motion.span>
               </button>
+
               <motion.div
-                className="px-8 pb-6"
+                id={`faq-answer-${index}`}
                 initial={false}
                 animate={openIndex === index ? "open" : "closed"}
                 variants={{
-                  open: { opacity: 1, height: "auto" },
-                  closed: { opacity: 0, height: 0 }
+                  open: { opacity: 1, height: "auto", paddingBottom: 24 },
+                  closed: { opacity: 0, height: 0, paddingBottom: 0 }
                 }}
-                transition={{ duration: 0.3, ease: "easeInOut" }}
+                transition={{ duration: 0.35, ease: "easeInOut" }}
+                className="px-6 md:px-8 overflow-hidden"
               >
-                <p className="font-body text-base-text leading-relaxed">
+                <p className="font-body text-base-text leading-relaxed text-left">
                   {item.answer}
                 </p>
               </motion.div>
