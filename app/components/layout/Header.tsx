@@ -1,4 +1,4 @@
-// app/components/layout/Header.tsx — Versión v3 CORREGIDA (con menú móvil)
+// app/components/layout/Header.tsx — Versión 4 (Menú móvil completo + fondo legible)
 "use client";
 import Image from 'next/image';
 import Link from 'next/link';
@@ -16,7 +16,7 @@ export const Header = () => {
     setIsMenuOpen(false);
   }, [pathname]);
 
-  // Evitar scroll en background cuando el menú está abierto
+  // Bloquear scroll en background cuando el menú está abierto
   useEffect(() => {
     if (isMenuOpen) {
       document.body.style.overflow = 'hidden';
@@ -28,6 +28,7 @@ export const Header = () => {
     };
   }, [isMenuOpen]);
 
+  // Definir enlaces según el contexto
   const institutionalLinks = [
     { href: '/', label: 'Início' },
     { href: '/insomnio', label: 'O que é insônia' },
@@ -89,16 +90,16 @@ export const Header = () => {
         </button>
       </nav>
 
-      {/* Menú móvil overlay */}
+      {/* Menú móvil overlay — CON FONDO OPACO Y CONTRASTE ALTO */}
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="md:hidden fixed inset-0 bg-background/95 backdrop-blur-sm z-40"
+            className="md:hidden fixed inset-0 bg-white z-40" // ✅ Fondo blanco sólido
           >
-            <div className="flex flex-col items-center justify-center h-full px-6">
+            <div className="flex flex-col items-center justify-start pt-20 px-6 h-full">
               <div className="w-full max-w-md space-y-6">
                 {currentLinks.map((link) => (
                   <motion.div
@@ -110,7 +111,7 @@ export const Header = () => {
                   >
                     <Link
                       href={link.href}
-                      className="block text-center font-body text-xl text-base-text hover:text-primary transition-colors py-3"
+                      className="block text-center font-body text-xl text-primary font-semibold hover:text-accent transition-colors py-3 border-b border-gray-100"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       {link.label}
@@ -118,6 +119,14 @@ export const Header = () => {
                   </motion.div>
                 ))}
               </div>
+              {/* Cerrar explícitamente */}
+              <button
+                onClick={() => setIsMenuOpen(false)}
+                className="mt-8 text-sm text-gray-500 hover:text-gray-700"
+                aria-label="Cerrar menú"
+              >
+                Cerrar
+              </button>
             </div>
           </motion.div>
         )}
