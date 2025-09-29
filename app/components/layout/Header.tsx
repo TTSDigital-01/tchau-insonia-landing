@@ -1,4 +1,4 @@
-// app/components/layout/Header.tsx — Versión 5 (Menú móvil con fondo negro y texto blanco)
+// app/components/layout/Header.tsx — Versión 6 (Menú móvil desplegable desde arriba)
 "use client";
 import Image from 'next/image';
 import Link from 'next/link';
@@ -16,19 +16,6 @@ export const Header = () => {
     setIsMenuOpen(false);
   }, [pathname]);
 
-  // Bloquear scroll en background cuando el menú está abierto
-  useEffect(() => {
-    if (isMenuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
-    return () => {
-      document.body.style.overflow = 'unset';
-    };
-  }, [isMenuOpen]);
-
-  // Definir enlaces según el contexto
   const institutionalLinks = [
     { href: '/', label: 'Início' },
     { href: '/insomnio', label: 'O que é insônia' },
@@ -90,43 +77,45 @@ export const Header = () => {
         </button>
       </nav>
 
-      {/* Menú móvil overlay — FONDO NEGRO, TEXTO BLANCO */}
+      {/* Menú móvil desplegable desde arriba — FONDO NEGRO COMPLETO */}
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="md:hidden fixed inset-0 bg-primary z-40" // ✅ Fondo negro (#1B2A49)
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3, ease: 'easeInOut' }}
+            className="md:hidden bg-primary overflow-hidden"
           >
-            <div className="flex flex-col items-center justify-start pt-20 px-6 h-full">
-              <div className="w-full max-w-md space-y-6">
-                {currentLinks.map((link) => (
-                  <motion.div
-                    key={link.href}
-                    initial={{ x: -20, opacity: 0 }}
-                    animate={{ x: 0, opacity: 1 }}
-                    exit={{ x: -20, opacity: 0 }}
-                    transition={{ delay: currentLinks.indexOf(link) * 0.05 }}
+            <div className="px-6 py-6 space-y-4">
+              {currentLinks.map((link) => (
+                <motion.div
+                  key={link.href}
+                  initial={{ x: -20, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ delay: currentLinks.indexOf(link) * 0.03 }}
+                >
+                  <Link
+                    href={link.href}
+                    className="block text-white font-body text-xl font-semibold py-2 hover:text-accent transition-colors"
+                    onClick={() => setIsMenuOpen(false)}
                   >
-                    <Link
-                      href={link.href}
-                      className="block text-center font-body text-xl text-white font-semibold hover:text-accent transition-colors py-3 border-b border-blue-800/30"
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      {link.label}
-                    </Link>
-                  </motion.div>
-                ))}
-              </div>
-              {/* Botón de cierre explícito — visible y accesible */}
-              <button
-                onClick={() => setIsMenuOpen(false)}
-                className="mt-12 px-6 py-3 bg-white/10 text-white rounded-lg font-body text-sm hover:bg-white/20 transition-colors"
-                aria-label="Cerrar menú"
+                    {link.label}
+                  </Link>
+                </motion.div>
+              ))}
+              <motion.div
+                initial={{ x: -20, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ delay: 0.3 }}
               >
-                Cerrar menú
-              </button>
+                <button
+                  onClick={() => setIsMenuOpen(false)}
+                  className="mt-4 text-white/80 hover:text-white text-sm font-body"
+                >
+                  Cerrar menú
+                </button>
+              </motion.div>
             </div>
           </motion.div>
         )}
